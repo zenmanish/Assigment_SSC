@@ -1,7 +1,7 @@
+package com.assignment.scc;
+
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Encoder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -13,26 +13,26 @@ public class Encoder {
 
         }
 
-        private static String encode(String str ) {
+        protected static String encode(String str) {
         if(str == null || str.isEmpty())
             return "";
 
             StringBuilder encoded = new StringBuilder();
             int count = 1;
-            char preChar = str.charAt(0);
+            char prevChar = str.charAt(0);
 
             for (int i = 1; i < str.length(); i++) {
                 char currentChar = str.charAt(i);
-                if (currentChar == preChar) {
+                if (currentChar == prevChar) {
                     count++;
                 } else {
-                    encoded.append(preChar).append(count);
-                    preChar = currentChar;
+                    encoded.append(prevChar).append(count);
+                    prevChar = currentChar;
                     count = 1;
             }
 
             }
-            encoded.append(preChar).append(count);
+            encoded.append(prevChar).append(count);
 
             return encoded.toString();
         }
